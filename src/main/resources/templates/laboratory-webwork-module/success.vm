@@ -1,0 +1,87 @@
+<head>
+    <title>Laboratory</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+    <style>
+        .item {
+            padding: 5px;
+            border: 1px solid black;
+            background: #E9E9E9;
+            text-align: center;
+        }
+
+        .selected {
+            padding: 5px;
+            border: 1px solid black;
+            border-right: none;
+            background: white;
+            text-align: center;
+        }
+
+        #B {
+            border-top: none;
+            border-bottom: none;
+        }
+
+        li {
+            list-style-type: none;
+        }
+
+        .window {
+            height: 94px;
+            border: 1px solid black;
+            border-left: none;
+            text-align: center;
+            margin-left: -30px;
+        }
+
+        .nav {
+            margin-top: +50px;
+        }
+
+    </style>
+</head>
+<body>
+<div class="nav">
+    <div class="row">
+        <div class="col-md-2">
+            <ul>
+                <li class="item" id="A">A</li>
+                <li class="item" id="B">B</li>
+                <li class="item" id="C">C</li>
+            </ul>
+        </div>
+        <div class="col-md-8">
+            <div class="window">
+                <div class="text" id="tA">
+                    <h1>Tab A</h1>
+                    <p>Some text</p>
+                </div>
+                <div class="text" id="tB">
+                    <h1>Tab B</h1>
+                    <p>Some text</p>
+                </div>
+                <div class="text" id="tC">
+                    <h1>Tab C</h1>
+                    <p>Some text</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+<script>
+    var main = function () {
+        $('.text').hide();
+        $(document).on("click", '.item', function () {
+            $('.text').hide();
+            $('.item').removeClass('selected');
+            $(this).toggleClass('selected');
+            if (this.id === 'A') $('#tA').show();
+            else if (this.id === 'B') $('#tB').show();
+            else if (this.id === 'C') $('#tC').show();
+        });
+    };
+    $(document).ready(main);
+</script>
+</body>
